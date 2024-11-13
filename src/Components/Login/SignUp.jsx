@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const SignUp = () => {
   return (
     <div className="h-screen w-full relative">
       <img
@@ -24,7 +24,12 @@ const Login = () => {
         </svg>
       </div>
       <div className="absolute z-10 left-1/2 top-1/2 w-[25rem] -translate-x-1/2 -translate-y-1/2 p-12 bg-black text-white flex flex-col gap-3 bg-opacity-80 ">
-        <h1 className="text-3xl font-bold mb-2">Sign In</h1>
+        <h1 className="text-3xl font-bold mb-2">Sign Up</h1>
+        <input
+          type="text"
+          placeholder="Enter Name"
+          className="p-3 rounded-md bg-slate-700 bg-opacity-40 placeholder:text-slate-100 outline-none"
+        ></input>
         <input
           type="email"
           placeholder="Enter Email"
@@ -39,19 +44,12 @@ const Login = () => {
           type="submit"
           className="p-3 rounded-md bg-red-600 font-semibold hover:bg-opacity-70 transition-all"
         >
-          Sign In
+          Sign Up
         </button>
-        <h1 className="text-center ont-semibold text-[#cacaca]">or</h1>
-        <button className="p-3 rounded-md bg-gray-600 bg-opacity-50 font-semibold hover:bg-opacity-70 transition-all">
-          Use a sign-in code
-        </button>
-        <h2 className="text-center text-[#cacaca] font-semibold cursor-pointer hover:underline">
-          Forgot Password?
-        </h2>
         <h2 className="text-[#cacaca] font-semibold text-sm mt-3">
-          New to Netflix?
-          <Link to="/signup" className="cursor-pointer hover:underline">
-            Sign up now.
+          Already Registered?
+          <Link to="/login" className="cursor-pointer hover:underline">
+            Sign In now.
           </Link>
         </h2>
       </div>
@@ -59,4 +57,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
