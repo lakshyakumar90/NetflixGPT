@@ -27,7 +27,7 @@ const Body = () => {
   ]);
   return (
       <div>
-        <RouterProvider location={location} key={location.pathname} router={appRouter} />
+        <RouterProvider router={appRouter} />
       </div>
   );
 };
