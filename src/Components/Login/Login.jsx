@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Logo from "./Logo";
 import {
   signInWithPopup,
@@ -13,11 +14,14 @@ import { checkValidLoginData } from "../../utils/validate";
 import { FaFacebook } from "react-icons/fa";
 import { IoLogoGoogle, IoEye, IoEyeOff } from "react-icons/io5";
 import { FaXTwitter } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../utils/userSlice";
 
 const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const passwordRef = useRef(null);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -26,9 +30,13 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
 
+  // login button
   const handleLoginButtton = () => {
     //vaildate the form data
-    const message = checkValidLoginData(email.current.value, password.current.value);
+    const message = checkValidLoginData(
+      email.current.value,
+      password.current.value
+    );
     setErrorMessage(message);
 
     if (message) return;
@@ -43,6 +51,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        navigate("/browse")
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -51,6 +60,7 @@ const Login = () => {
       });
   };
 
+  // sign in with facebook
   const handleFacebookButtton = () => {
     const provider = new FacebookAuthProvider();
     signInWithPopup(auth, provider)
@@ -64,6 +74,7 @@ const Login = () => {
 
         // IdP data available using getAdditionalUserInfo(result)
         // ...
+        navigate("/browse");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -76,6 +87,7 @@ const Login = () => {
       });
   };
 
+  // sign in with google
   const handleGoogleButtton = () => {
     const provider = new GoogleAuthProvider();
     auth.languageCode = "it";
@@ -87,6 +99,7 @@ const Login = () => {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
+        navigate("/browse");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -99,6 +112,7 @@ const Login = () => {
       });
   };
 
+  // sign in with twitter
   const handleTwitterButton = () => {
     const provider = new TwitterAuthProvider();
     signInWithPopup(auth, provider)
@@ -112,6 +126,7 @@ const Login = () => {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
+        navigate("/browse");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -147,21 +162,22 @@ const Login = () => {
           placeholder="Email Address"
         />
 
-       <div className="w-full relative">
-       <input
-          ref={password}
-          type={showPassword ? "text" : "password"}
-          className="w-full p-3 outline-none rounded-md bg-gray-400 bg-opacity-50"
-          placeholder="Email Password"
-        />
-        <button className="absolute right-3 top-1/2 -translate-y-1/2 " onClick={togglePasswordVisibility}>{showPassword ? <IoEyeOff /> : <IoEye />}</button>{" "}
-       </div>
+        <div className="w-full relative">
+          <input
+            ref={password}
+            type={showPassword ? "text" : "password"}
+            className="w-full p-3 outline-none rounded-md bg-gray-400 bg-opacity-50"
+            placeholder="Email Password"
+          />
+          <button
+            className="absolute right-3 top-1/2 -translate-y-1/2 "
+            onClick={togglePasswordVisibility}
+          >
+            {showPassword ? <IoEyeOff /> : <IoEye />}
+          </button>{" "}
+        </div>
 
-        <h2
-          className="text-red-500 font-bold text-lg py-2"
-        >
-          {errorMessage}
-        </h2>
+        <h2 className="text-red-500 font-bold text-lg py-2">{errorMessage}</h2>
 
         <button
           onClick={handleLoginButtton}
