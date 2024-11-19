@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "./Header";
+import Header from "../../Header";
 import CarouselComponent from "./CarouselComponent";
 import Email from "./Email";
 import MoviesList from "./MoviesList";

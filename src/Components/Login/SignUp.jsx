@@ -1,6 +1,5 @@
 import React, { useRef, useState } from "react";
-import Logo from "./Logo";
-import { useNavigate } from "react-router-dom";
+import Header from "../Header";
 import {
   signInWithPopup,
   FacebookAuthProvider,
@@ -21,7 +20,6 @@ import { addUser } from "../../utils/userSlice";
 const SignUp = () => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const togglePasswordVisibility = () => {
@@ -61,7 +59,6 @@ const SignUp = () => {
             dispatch(
               addUser({ uid: uid, email: email, displayName: displayName })
             );
-            navigate("/browse");
           });
       })
       .catch((error) => {
@@ -84,7 +81,6 @@ const SignUp = () => {
 
         // IdP data available using getAdditionalUserInfo(result)
         // ...
-        navigate("/browse");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -110,7 +106,6 @@ const SignUp = () => {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        navigate("/browse");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -138,7 +133,6 @@ const SignUp = () => {
         // The signed-in user info.
         const user = result.user;
         // IdP data available using getAdditionalUserInfo(result)
-        navigate("/browse");
       })
       .catch((error) => {
         // Handle Errors here.
@@ -154,13 +148,17 @@ const SignUp = () => {
 
   return (
     <div className="h-screen w-full relative">
+
+      {/* header div  */}
+      <div className="absolute top-0 w-full bg-gradient-to-b from-black to-transparent bg-opacity-5 z-10">
+        <Header />
+      </div>
+      
       {/* background image */}
       <img
         className="h-full w-full object-cover opacity-50"
         src="https://assets.nflxext.com/ffe/siteui/vlv3/81d64f3c-9627-4741-8f74-422bf35f9f1d/web/IN-en-20241104-TRIFECTA-perspective_55263ea2-af7f-40ed-9cf0-7029a9b9baf4_medium.jpg"
       />
-
-      <Logo />
 
       {/* sign up form */}
       <div className="absolute z-10 left-1/2 top-1/2 w-[25rem] -translate-x-1/2 -translate-y-1/2 p-12 bg-black text-white flex flex-col gap-3 bg-opacity-80 ">

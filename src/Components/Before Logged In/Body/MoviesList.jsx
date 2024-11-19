@@ -65,7 +65,7 @@ const MoviesList = () => {
         )}
 
         {isPopupVisible && selectedMovie && (
-          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 transition-all">
             <div className="bg-white rounded-lg w-[54%] h-[85%] relative overflow-hidden bg-[rgb(22,22,22)] ">
               <button
                 onClick={handleClosePopup}
