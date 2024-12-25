@@ -4,6 +4,7 @@ import Home from "./Before Logged In/Body/Home";
 import Login from "./Login/Login";
 import Browse from "./After Logged In/Browse";
 import SignUp from "./Login/SignUp";
+import InfoPage from "./Info/InfoPage";
 
 const Body = () => {
 
@@ -23,6 +24,10 @@ const Body = () => {
     {
       path: "/signup",
       element: <SignUp />,
+    },
+    {
+      path: "/browse/:id",
+      element: <InfoPage />,
     },
   ]);
 

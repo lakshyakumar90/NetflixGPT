@@ -7,6 +7,7 @@ import useMovieGenre from "../../hooks/useMovieGenre";
 import MainContainer from "./Main Container/MainContainer";
 import useTopRatedMovies from "../../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../../hooks/useUpcomingMovies";
+import SecondaryContainer from "./Secondary Container/SecondaryContainer";
 
 const Browse = () => {
   const user = useSelector((state) => state.user);
@@ -14,38 +15,16 @@ const Browse = () => {
 
   usePopularMovies();
   useNowPlayingMovies();
-  // useMovieGenre();
-  // useTopRatedMovies()
+  useMovieGenre();
+  useTopRatedMovies()
   useUpcomingMovies();
  
   return (
     <div className="text-white">
       <Header />
-
       <MainContainer />
-
+      <SecondaryContainer movies={movies}/>
       <h1>{user && user.displayName}</h1>
-      {/* Conditional rendering for movies
-      {movies.popularMovies?.length > 0 ? (
-        movies.popularMovies.map((movie) => (
-          <div key={movie.id}>
-            <p>{movie.title}</p>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )}
-
-      <br/><br/>
-      {movies.nowPlayingMovies?.length > 0 ? (
-        movies.nowPlayingMovies.map((movie) => (
-          <div key={movie.id}>
-            <p>{movie.title}</p>
-          </div>
-        ))
-      ) : (
-        <p>Loading...</p>
-      )} */}
     </div>
   );
 };

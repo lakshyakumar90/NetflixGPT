@@ -10,7 +10,7 @@ const VideoBackground = ({ movie }) => {
       {trailerVideo ? (
         <iframe
           className="absolute top-[-2%] left-0 aspect-video w-full object-cover"
-          src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
+          src={`https://www.youtube.com/embed/${trailerVideo.key}?autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0&showinfo=0`}
           title="YouTube video player"
           allow="autoplay; encrypted-media"
           referrerPolicy="strict-origin-when-cross-origin"

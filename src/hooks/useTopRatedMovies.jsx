@@ -11,7 +11,6 @@ const useTopRatedMovies = () => {
       const data = await fetch("https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1", API_OPTIONS);
       const json = await data.json();
       dispatch(addTopRatedMovies(json.results));
-      console.log(json.results);
     } catch (error) {
       console.error("Error fetching now playing movies:", error);
     }
