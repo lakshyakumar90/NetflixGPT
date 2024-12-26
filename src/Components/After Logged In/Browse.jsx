@@ -8,6 +8,7 @@ import MainContainer from "./Main Container/MainContainer";
 import useTopRatedMovies from "../../hooks/useTopRatedMovies";
 import useUpcomingMovies from "../../hooks/useUpcomingMovies";
 import SecondaryContainer from "./Secondary Container/SecondaryContainer";
+import useClearSearchSlice from "../../hooks/useClearSearchSlice";
 
 const Browse = () => {
   const user = useSelector((state) => state.user);
@@ -18,6 +19,7 @@ const Browse = () => {
   useMovieGenre();
   useTopRatedMovies()
   useUpcomingMovies();
+  useClearSearchSlice();
  
   return (
     <div className="text-white">

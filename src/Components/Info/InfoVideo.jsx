@@ -8,7 +8,7 @@ const InfoVideo = ({infoVideo}) => {
                         className="w-full h-full"
                         src={`https://www.youtube.com/embed/${firstTrailer.key}?autoplay=1&loop=1&playlist=${firstTrailer.key}`}
                         title={firstTrailer.name}
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allow="accelerometer; autoplay; loop; muted; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
                 </div>

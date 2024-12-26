@@ -1,7 +1,6 @@
 import { TMDB_IMG_CDN } from "../../../utils/constants";
 
 const MovieCard = ({ movie }) => {
-  console.log(movie);
   return (
     <div className="h-[250px]">
       <div className="h-[90%] overflow-hidden flex items-center justify-center rounded-lg hover:scale-[1.03] hover:rounded-lg transition-all mt-4 cursor-pointer">

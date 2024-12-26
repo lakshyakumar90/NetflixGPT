@@ -18,8 +18,17 @@ export const API_OPTIONS = {
   method: 'GET',
   headers: {
     accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMTMzMzkwN2U1OGRkMTgzMWE1ZDNmY2I2NWZmZDI0ZCIsIm5iZiI6MTczMjMwMTc4NC42MzUyMTE3LCJzdWIiOiI2NzNkZWY3MTg5MGVmZmY5ZjY2OTc5NjgiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.tXSqOLlVu7xnR75JogMmpDqq2RqKioASThfBRtp-C50'
+    Authorization: 'Bearer ' + import.meta.env.VITE_API_TMDB_API_KEY
   }
 };
 
 export const TMDB_IMG_CDN = "https://image.tmdb.org/t/p/w500"
+
+export const BG_IMG = "https://assets.nflxext.com/ffe/siteui/vlv3/81d64f3c-9627-4741-8f74-422bf35f9f1d/web/IN-en-20241104-TRIFECTA-perspective_55263ea2-af7f-40ed-9cf0-7029a9b9baf4_medium.jpg"
+
+export const SUPPORTED_LANGUAGES = [
+  { identifier: "en", name: "English" },
+  { identifier: "hindi", name: "Hindi" },
+];
+
+export const GEMINI_KEY = import.meta.env.VITE_API_GEMINI_API_KEY;

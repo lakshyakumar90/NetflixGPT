@@ -26,13 +26,13 @@ const InfoPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-zinc-900 to-black text-white mb-10">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-900 to-black text-white">
       <div>
         {renderLogo()}
       </div>
       <MainInfo info={info} />
       <InfoVideo infoVideo={infoVideo} />
-      <Recommendations recommendations={recommendations} />
+      <Recommendations heading="Recommendations" recommendations={recommendations} />
       <Reviews reviews={reviews} />
     </div>
   );

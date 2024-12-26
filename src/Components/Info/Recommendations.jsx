@@ -1,19 +1,17 @@
 import { Link } from "react-router-dom";
 
-const Recommendations = ({ recommendations }) => {
-  console.log(recommendations);
+const Recommendations = ({ recommendations, heading }) => {
   if (!recommendations || recommendations.results.length === 0) return null;
-  const recommendedMovies = recommendations?.results;
+  const recommendedMovies = recommendations?.results.filter(movie => movie.poster_path);
 
   return (
     <div className="px-6">
-      <h1 className="text-3xl font-bold py-4">Recommendations</h1>
+      <h1 className="text-3xl font-bold py-4">{heading}</h1>
       <div className="flex overflow-x-scroll scrollbar-none">
         <div className="flex gap-4 ">
           {recommendedMovies?.map((movie) => (
-            
-            <Link to={"/browse/" + movie?.id}>
-              <div key={movie.id} className="flex-none w-48 overflow-hidden">
+            <Link key={movie.id} to={"/browse/" + movie?.id}>
+              <div className="flex-none w-48 overflow-hidden">
                 <div className="relative h-72 rounded-lg overflow-hidden hover:scale-105 transition-transform cursor-pointer">
                   <img
                     className="w-full h-full object-cover"

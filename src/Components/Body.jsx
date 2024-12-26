@@ -5,6 +5,7 @@ import Login from "./Login/Login";
 import Browse from "./After Logged In/Browse";
 import SignUp from "./Login/SignUp";
 import InfoPage from "./Info/InfoPage";
+import GptSearch from "./After Logged In/GPTSearch/GptSearch";
 
 const Body = () => {
 
@@ -28,6 +29,10 @@ const Body = () => {
     {
       path: "/browse/:id",
       element: <InfoPage />,
+    },
+    {
+      path: "browse/gptsearch",
+      element: <GptSearch />,
     },
   ]);
 

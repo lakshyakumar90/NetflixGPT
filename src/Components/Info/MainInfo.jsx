@@ -24,7 +24,7 @@ const MainInfo = ({ info }) => {
           </div>
 
           {/* Movie Details */}
-          <div className="flex-grow mt-10">
+          <div className="flex-grow mt-5">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
               {info.title}
               <span className="text-2xl text-gray-400 ml-4">
@@ -74,11 +74,11 @@ const MainInfo = ({ info }) => {
               </div>
               <div>
                 <h3 className="text-gray-400">Budget</h3>
-                <p>${info.budget?.toLocaleString()}</p>
+                <p>{info.budget ? "$" + info.budget.toLocaleString() : 'N/A'}</p>
               </div>
               <div>
                 <h3 className="text-gray-400">Revenue</h3>
-                <p>${info.revenue?.toLocaleString()}</p>
+                <p>{info.revenue ? "$" + info.revenue.toLocaleString() : 'N/A'}</p>
               </div>
             </div>
           </div>
